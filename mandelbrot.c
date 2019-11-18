@@ -1,24 +1,22 @@
 /*
  * mandelbrot.c
  * Created by William Shue on 12/29/18.
- * DOUBLE CHECK VAR NAMES AND COMMENTS BEFORE
- * PUBLISHING, ALSO ADD MORE DETAILS ON THE PROGRAM
- * HERE
+ * TODO: update var names and comments
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
 int main(){
-    
+
     int height = 4000, width = 8000;
     int halfHeight = height/2, halfWidth = width/2;
     //create a two dimensional array with malloc
     int (*image)[width] = malloc(sizeof(int[height][width]));
-    
-    //adjust how big the fractal will appear, the smaller the larger it will be
+
+    //adjust how big the fractal will appear, the smaller the value the larger it will be
     float fractalScalar = .0007;
-    
+
     /*
      * The two dimensional array 'image' is treated such that the
      * x axis is the real numberline and the y axis is the complex
@@ -28,11 +26,11 @@ int main(){
      */
     for(int x = -halfWidth; x < halfWidth; x++){
         for(int y = -halfHeight; y < halfHeight; y++){
-            
+
             //a & b are set to x and y respecitvely as they represet a complex# a + bi
             float a = (float)x*fractalScalar;
             float b = (float)y*fractalScalar; //cast x & y to floats
-            
+
             int count = 0;
             /*
              * iteresting things happen when you adjust 'totalIterations' totalIterations
@@ -43,20 +41,20 @@ int main(){
             while(count < totalIterations){
                 //(a+bi)^2 = (a^2 - b^2) + 2abi
                 float realTerm = a*a - b*b; //real component
-                float complexTerm = 2 * a * b; //complex component 'coeffiecnt' <- correct usage?
-                
+                float complexTerm = 2 * a * b; //complex component 'coeffiecnt'
+
                 //add the original values and iterate the process
                 a = realTerm + (float)x*fractalScalar;
                 b = complexTerm + (float)y*fractalScalar;
-                
+
                 //check for unbounded cases where a+b become - or + infinite
                 //the mandelbrot values always lay between -2 & 2
-                if(a+b > 2.0 || a+b < -2.0 ){ //alternatively real term + complex term?
+                if(a+b > 2.0 || a+b < -2.0 ){ //alternatively real term + complex term
                     break;
                 }
                 count++;
             }
-            
+
             //in the case that a+b did not become - or + infinite change pixel color
             if(count == totalIterations){
                 image[y+halfHeight][x+halfWidth] = 200;

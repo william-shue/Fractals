@@ -1,8 +1,7 @@
 /*
  * julia.c
  * Created by William Shue on 12/29/18.
- * TODO: update car names and comments
- *
+ * TODO: update var names and comments
  */
 
 #include <stdio.h>
@@ -40,18 +39,18 @@ int main(){
 
             int count = 0;
             /*
-             * iteresting things happen when you adjust 'totalIterations' totalIterations
+             * interesting things happen when you adjust 'totalIterations' totalIterations
              * deteremines how confident we are that a+b will not go to - or + infinity, it almost
              * acts as 'resolution'
              */
             int totalIterations = 50;
             while(count < totalIterations){
-                //EXPLAIN HOW THE ONLY MODIFICATION IS THE MATH HERE
+                //add explination: (how the only modification is the math here)
                 //to make the fifth mandelbrot as opposed to this: (a+bi)^2 = (a^2 - b^2) + 2abi
                 //this is done: (a+bi)^5 = (a^5-10a^3b^2+5ab^4)+(5a^4b-10a^2b^3+b^5)i
                 //...looks about time to start using a pow operator
                 float realTerm = a*a - b*b; //real component
-                float complexTerm = 2 * a * b; //complex component 'coeffiecnt' <- correct usage?
+                float complexTerm = 2 * a * b; //complex component 'coeffiecnt'
 
 
                 //add the original values and iterate the process
