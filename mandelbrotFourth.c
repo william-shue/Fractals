@@ -1,24 +1,22 @@
 /*
  * mandelbrotFourth.c
  * Created by William Shue on 12/29/18.
- * DOUBLE CHECK VAR NAMES AND COMMENTS BEFORE
- * PUBLISHING, ALSO ADD MORE DETAILS ON THE PROGRAM
- * HERE
+ * TODO: update var names and comments
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
 int main(){
-    
+
     int height = 4000, width = 4000;
     int halfHeight = height/2, halfWidth = width/2;
     //create a two dimensional array with malloc
     int (*image)[width] = malloc(sizeof(int[height][width]));
-    
+
     //adjust how big the fractal will appear, the smaller the larger it will be
     float fractalScalar = .0007;
-    
+
     /*
      * The two dimensional array 'image' is treated such that the
      * x axis is the real numberline and the y axis is the complex
@@ -28,29 +26,29 @@ int main(){
      */
     for(int x = -halfWidth; x < halfWidth; x++){
         for(int y = -halfHeight; y < halfHeight; y++){
-            
+
             //a & b are set to x and y respecitvely as they represet a complex# a + bi
             float a = (float)x*fractalScalar;
             float b = (float)y*fractalScalar; //cast x & y to floats
-            
+
             int count = 0;
             /*
-             * iteresting things happen when you adjust 'totalIterations' totalIterations
+             * interesting things happen when you adjust 'totalIterations' totalIterations
              * deteremines how confident we are that a+b will not go to - or + infinity, it almost
              * acts as 'resolution'
              */
             int totalIterations = 50;
             while(count < totalIterations){
-                //EXPLAIN HOW THE ONLY MODIFICATION IS THE MATH HERE
+                //add explination: (how the only modification is the math here)
                 //to make the cubic mandelbrot as opposed to this: (a+bi)^2 = (a^2 - b^2) + 2abi
                 //this is done: (a+bi)^4 = (a^4-6a^2b^2+b^4)+(4a^3b-4ab^3)i
                 float realTerm = a*a*a*a - 6*a*a*b*b + b*b*b*b; //real component
-                float complexTerm = 4*a*a*a*b - 4*a*b*b*b; //complex component 'coeffiecnt' <- correct usage?
-                
+                float complexTerm = 4*a*a*a*b - 4*a*b*b*b; //complex component 'coeffiecnt'
+
                 //add the original values and iterate the process
                 a = realTerm + (float)x*fractalScalar;
                 b = complexTerm + (float)y*fractalScalar;
-                
+
                 //check for unbounded cases where a+b become - or + infinite
                 //the mandelbrot values always lay between -2 & 2
                 if(a+b > 2.0 || a+b < -2.0 ){
@@ -58,7 +56,7 @@ int main(){
                 }
                 count++;
             }
-            
+
             //in the case that a+b did not become - or + infinite change pixel color
             if(count == totalIterations){
                 image[y+halfHeight][x+halfWidth] = 200;
