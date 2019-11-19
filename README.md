@@ -5,4 +5,4 @@ To best understand the Mandelbrot set I highly recommend reading over it's Wikip
 
 Here are some images to get an idea for what can be created with the following programs:
 
-![alt text](https://github.com/william-shue/Fractals/blob/master/readme-images/Screen%20Shot%202019-11-18%20at%208.31.20%20PM.png)
+![alt text](https://github.com/william-shue/Fractals/blob/master/readme-images/julia-set-example.png)
