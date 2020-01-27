@@ -3,7 +3,7 @@
 ## Introduction
 This repository contains C programs which draw fractals using the formulas for creating the Mandelbrot and Julia sets.
 
-To best understand the Mandelbrot set I highly recommend reading over it's Wikipedia page: [https://en.wikipedia.org/wiki/Mandelbrot_set](https://en.wikipedia.org/wiki/Mandelbrot_set)
+To best understand the Mandelbrot set I highly recommend reading over its Wikipedia page: [https://en.wikipedia.org/wiki/Mandelbrot_set](https://en.wikipedia.org/wiki/Mandelbrot_set)
 
 ## Repository Structure
 The repository structure is as follows:
@@ -30,4 +30,4 @@ And the quintic Mandelbrot set:
 ![Mandelbrot](https://github.com/william-shue/Fractals/blob/master/readme-images/quintic-mandelbrot-set.png)
 
 ## Use
-If you're familiar with compiling C programs in terminal then this should be a breeze for you! In the 'fractal-programs' file just target fractal file you're interested in, compile it (I like using gcc) and then run the executable. This will produce a pgm image which can be viewed with an application like 'preview'.
+If you're familiar with compiling C programs in terminal then this should be a breeze for you! In the 'fractal-programs' file just target fractal file you're interested in, compile it and then run the executable. This will produce a pgm image which can be viewed with an application like 'preview'.
